@@ -17,19 +17,22 @@ class MyDatabaseAdapter extends TypeAdapter<MyDatabase> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return MyDatabase(
-      fields[0] as String,
-      fields[1] as String,
+      name: fields[0] as String,
+      age: fields[1] as String,
+      studentId: fields[3] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, MyDatabase obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
-      ..write(obj.age);
+      ..write(obj.age)
+      ..writeByte(3)
+      ..write(obj.studentId);
   }
 
   @override

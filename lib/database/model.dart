@@ -9,5 +9,7 @@ class MyDatabase {
   @HiveField(1)
   final String age;
 
-  MyDatabase(this.name, this.age);
+  @HiveField(3)
+  String? studentId;
+  MyDatabase({required this.name, required this.age, this.studentId});
 }
